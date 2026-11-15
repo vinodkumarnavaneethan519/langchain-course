@@ -1,3 +1,4 @@
+# This is a lanchain python project for linkdin search
 from dotenv import load_dotenv
 load_dotenv()
 from langchain.agents import create_agent
