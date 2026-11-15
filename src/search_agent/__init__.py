@@ -37,6 +37,10 @@ agent = create_agent(model=llm,tools=tools,response_format=JobSearchResult)
 def main():
     print("Hello from langchain-course!")
     result = agent.invoke({"messages":HumanMessage(content="search for 3 job postings for an ai engineer using langchain in the vancouver area on linkedin and list their details")})
-    print(result)
+    #print(result)
+    jobs: JobSearchResult = result["structured_response"]
+    for job in jobs.postings:
+        print(job.title, job.company, job.url)
+
 if __name__ == "__main__":
     main()
